@@ -1,0 +1,218 @@
+body{
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label{
+    margin: 20px 0;
+}
+
+.interface{
+    width: 400px;
+    height: 600px;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.search{
+    border-bottom: 1px solid #000;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search img{
+    width: 20px;
+}
+
+.search input{
+    width: 70%;
+    height: 30px;
+    border-radius: 15px;
+    background: url(../images/search.png) no-repeat scroll;
+    background-size: 15px;
+    background-position: left;
+    padding-left: 20px;
+    background-position-x: 3px;
+}
+
+.contacts{
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.contacts::-webkit-scrollbar{
+    display: none;
+}
+
+.contact_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.contact_item:not(:last-child){
+    border-bottom: 1px solid #000;
+}
+
+.contact_item img{
+    border: 1px solid #000;
+    width: 75px;
+}
+
+.info{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100px;
+}
+
+.nav p{
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+}
+
+.nav p:hover{
+    filter: drop-shadow(0px 0px 3px #f00);
+}
+
+.fav{
+    color: #f00;
+}
+
+.open_modal, .add_contact{
+    border-top: 1px solid #000;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .1s linear;
+}
+
+.open_modal:hover, .add_contact:hover{
+    background-color: #ddd
+}
+
+.open_modal h1, .add_contact h1{
+    text-align: center;
+}
+
+
+/* ===== LOADER ===== */
+
+.loader{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    border: 5px solid;
+    border-radius: 50%;
+    border-top-color: #f00;
+    border-bottom-color: #0f0;
+    border-left-color: #00f;
+    border-right-color: #ff0;
+    animation: loader_anim .5s linear infinite;
+}
+
+@keyframes loader_anim {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== ===== MODAL ===== ===== */
+
+.modal{
+    margin-top: 67px;
+    position: absolute;
+    background: #fff;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s linear;
+}
+
+.modal_active{
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.close_modal{
+    position: absolute;
+    /* top: 10px; */
+    /* right: 10px; */
+}
+
+.add_contact_text{
+    margin: 3px 0;
+    height: 30px;
+}
+
+.form{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.form div:not(:last-child){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    /* width: 80%; */
+}
+
+/* .form div:last-child{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+} */
+
+.form input:last-child{
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    padding: 0 5px;
+}
+
+.form input:not(:last-child){
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.form .name{
+    caret-color: transparent;
+}
+
+.form p{
+    align-self: flex-start;
+    margin: 5px 0;
+}
